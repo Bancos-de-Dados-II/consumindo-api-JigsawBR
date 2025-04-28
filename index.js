@@ -5,7 +5,6 @@ import taskRouter from './router/task-router.js'
 import usersRouter from './router/users-router.js'
 import User from './model/user.js';
 import Task from './model/task.js';
-import User from './model/user.js';
 
 const port = 3000
 const app = express()
