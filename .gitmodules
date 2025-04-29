@@ -1,0 +1,3 @@
+[submodule "pasta-interna"]
+	path = pasta-interna
+	url = https://github.com/Bancos-de-Dados-II/aulas-api-2025-1.git
