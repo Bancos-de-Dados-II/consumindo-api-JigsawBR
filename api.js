@@ -1,8 +1,11 @@
-async function API(params) {
-    fetch("http://localhost:3000/tasks")
-            .then(response =>{
-                response.json().then(task =>{
-                    console.log(task)
-                })
-            })
+async function API() {
+    try {
+        const response = await fetch("http://localhost:3000/tasks");
+        const tasks = await response.json();
+        console.log(tasks);
+    } catch (error) {
+        console.error("Erro ao buscar tarefas:", error);
+    }
 }
+
+API(); // Chamada da função
