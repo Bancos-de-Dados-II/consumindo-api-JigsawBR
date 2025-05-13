@@ -1,4 +1,4 @@
-async function API() {
+/*async function API() {
     try {
         const response = await fetch("http://localhost:3000/tasks");
         const tasks = await response.json();
@@ -8,4 +8,4 @@ async function API() {
     }
 }
 
-API(); // Chamada da função
+API();*/ // Chamada da função

@@ -1,5 +1,5 @@
 
-const btSalvar = document.getElementById("btSalvar");
+/*const btSalvar = document.getElementById("btSalvar");
 
 btSalvar.addEventListener('click', function(){
     const titulo = document.getElementById("titulo");
@@ -30,5 +30,5 @@ btSalvar.addEventListener('click', function(){
     } catch(err) {
         console.log("Erro ao criar task: " + err);
     }
-});
+});*/
 

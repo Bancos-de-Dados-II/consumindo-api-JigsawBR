@@ -1,7 +1,8 @@
 import express from 'express'
 const TaskRouter = express.Router();
-import { getTasks, createTask, findTask, deleteTask, updateTask } from '../controller/task-controller.js';
+import { getTasks, createTask, findTask, deleteTask, updateTask, findTaskByDate } from '../controller/task-controller.js';
 
+TaskRouter.get('/by-date', findTaskByDate);
 TaskRouter.get('/', getTasks);
 TaskRouter.get('/:id',findTask);
 TaskRouter.delete('/:id', deleteTask);
