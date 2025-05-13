@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <h1>Gerenciador de Tarefas</h1>
+    
+    <div>
+        <h3>Criar Tarefa</h3>
+        <form id="create-task-form">
+            <input type="text" id="titulo" placeholder="Título" required>
+            <textarea id="descricao" placeholder="Descrição" required></textarea>
+            <select id="tipo" required>
+                <option value="Pessoal">Pessoal</option>
+                <option value="Profissional">Profissional</option>
+            </select>
+            <button type="submit">Criar Tarefa</button>
+        </form>
+    </div>
+    
+    <div>
+        <h3>Lista de Tarefas</h3>
+        <ul id="task-list"></ul>
+    </div>
+
+    <div id="task-edit-modal" style="display:none;">
+        <h3>Editar Tarefa</h3>
+        <input type="text" id="edit-titulo" required>
+        <textarea id="edit-descricao" required></textarea>
+        <select id="edit-tipo" required>
+            <option value="Pessoal">Pessoal</option>
+            <option value="Profissional">Profissional</option>
+        </select>
+        <button id="save-edits">Salvar alterações</button>
+        <button id="cancel-edit">Cancelar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

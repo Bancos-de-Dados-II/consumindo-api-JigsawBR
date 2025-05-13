@@ -1,26 +1,26 @@
 import express from 'express';
 import cors from 'cors';
-import TaskRouter from './router/task-router.js';
-import UserRouter from './router/user-router.js'; // Rota de usuário
-
 const app = express();
+app.use(express.json());
+app.use(cors());
 const port = 3000;
 
-// Middleware de CORS para permitir requisições de diferentes origens
-app.use(cors());
+import TaskRouter from './router/task-router.js';
 
-// Middleware para analisar corpo das requisições (JSON)
-app.use(express.json());
-
-// Rota estática para arquivos públicos
-app.use('/public', express.static('public'));
-
-// Rota para tarefas
 app.use('/tasks', TaskRouter);
 
-// Rota para usuários
-app.use('/users', UserRouter); // Assegure-se de ter um arquivo user-router.js para lidar com isso
+//TODO: Refatorar
+import User from './model/user.js';
+app.post('/users', async (req,res)=>{
+    try{
+        const user = await User.create(req.body);
+        res.status(201).json(user);
+    }catch(err){
+        console.log(err);
+        res.status(400).json("Erro ao criar usuario");
+    }
+});
 
 app.listen(port, () => {
-  console.log(`App de exemplo está rodando na porta ${port}`);
+  console.log(`App de exemplo esta rodando na porta ${port}`)
 });
