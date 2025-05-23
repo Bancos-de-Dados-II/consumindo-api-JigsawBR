@@ -49,5 +49,3 @@ export async function createTask(req,res){
       res.status(400).json("Erro ao criar tarefa");
     }
   }
-
-    
