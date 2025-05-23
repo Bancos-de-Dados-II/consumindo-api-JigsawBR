@@ -24,6 +24,10 @@ const Task = sequelize.define(
       tipo: {
         type: DataTypes.ENUM('Pessoal', 'Profissional'),
         allowNull: false
+      },
+      local: {
+        type: DataTypes.GEOGRAPHY('POINT'),
+        allowNull: false
       }
     },
     {
