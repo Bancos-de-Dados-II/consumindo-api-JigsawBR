@@ -1,8 +1,22 @@
 import Task from "../model/task.js";
+import client from '../database/redis.js';
 
 export async function getTasks(req, res){
-    const tasks = await Task.findAll();
-    res.status(200).json(tasks);
+    const cacheTasks = await client.get('tasks');
+    if(cacheTasks){
+        console.log('Cache hit')
+        res.status(200).json(JSON.parse(cacheTasks));
+        return;
+    }else{
+        console.log('cache miss');
+        const tasks = await Task.findAll();
+        if(tasks.length != 0){
+            await client.set('tasks', JSON.stringify(tasks),{
+                EX: 60 * 60, // 1 hour
+            });
+        }
+        res.status(200).json(tasks);
+    }
 }
 
 export async function findTask(req, res){
